@@ -76,6 +76,11 @@ public class ListaJugadores {
 		}
 		return false;
 	}
+	public void volverATirar() {
+		this.posicion--;
+		System.out.println("Vuelve a tirar");
+	}
+	
 	
 	public void jugarPartida() {
 		boolean victoria=false;

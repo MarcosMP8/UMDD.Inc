@@ -51,10 +51,17 @@ public class ListaCasillas {
 		
 	}
 	public void mover(int pNum,Jugador pJugador) {
+		Casilla casillaInic = this.buscarCasilla(pJugador);
+		Casilla casillaF=null;
+		int i = casillaInic.getNumCasilla();		
+		i = i-1;    //Restamos uno para el Id del array
+		i=i+pNum;
+		casillaF = this.lista.get(i);
+		casillaF.ponerJugador(pJugador, casillaInic);
+		i++;
+		
 		
 	}
-	//public boolean comprobarVictoria() {
-		
-	//}
+	
 
 }

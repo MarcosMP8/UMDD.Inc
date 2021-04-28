@@ -11,17 +11,18 @@ public abstract class Casilla {
 	}
 	//Otros Metodos
 	public int getNumCasilla() {
-		
+		return this.numCasillas;
 	}
 	public void limpiar() {
-		
+		this.lista=null;//Como limpiar la lista 
 	}
-	public void ponerJugador(Jugador pJugador) {
-		
+	public void ponerJugador(Jugador pJugador, Casilla pCasilla) {
+		if (pCasilla != null) {
+			pCasilla.lista.eliminar(pJugador);
+		}
+		this.lista.añadir(pJugador);
 	}
-	//public boolean comprobarVictoria() {
-		
-	//}
+	
 	public boolean esta(String pColor) {
 		boolean esta;
 		esta=this.lista.mirarPorColor(pColor);
