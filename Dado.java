@@ -1,13 +1,11 @@
-package Trabajo;
+package TrabajoOca;
 
 import java.util.Random;
-
-
 
 public class Dado {
 	//Atributos
 	private static Dado miDado;
-	Random nAle;
+	private Random nAle;
 	
 	//Constructora
 	private Dado() {

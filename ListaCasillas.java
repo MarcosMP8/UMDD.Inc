@@ -1,16 +1,15 @@
-package Trabajo;
+package TrabajoOca;
 
 import java.util.ArrayList;
-
-import Clases.Jugador;
+import java.util.Iterator;
 
 public class ListaCasillas {
 	//Atributos
-	private ArrayList <Jugador> lista;
+	private ArrayList <Casilla> lista;
 	private static ListaCasillas miListaCasillas;
 	//Constructora
 	private ListaCasillas() {
-		this.lista = new ArrayList <Jugador>();
+		this.lista = new ArrayList <Casilla>();
 		
 	}	
 	//Otros Metodos
@@ -21,5 +20,41 @@ public class ListaCasillas {
 		
 		return ListaCasillas.miListaCasillas;
 	}
+	private Iterator <Casilla> getIterador(){
+		return this.lista.iterator();
+	}
+	public Casilla getCasilla(int pNum) {
+		if (pNum == 0) {
+			return null;
+		} else {
+			pNum--;
+			return this.lista.get(pNum);
+		}
+	}
+	public Casilla buscarCasilla(Jugador pJugador) {
+		Casilla unaCasilla = null;
+		boolean esta = false;
+		Iterator <Casilla> itr = this.getIterador();
+		String color=pJugador.getColor();
+		while (itr.hasNext() && !esta) {
+			unaCasilla = itr.next();
+			if (unaCasilla.esta(color)) {
+				esta = true;
+			}
+		}
+		if (!esta) {
+			unaCasilla = null;
+		}
+		return unaCasilla;
+	}
+	public void vaciarTablero() {
+		
+	}
+	public void mover(int pNum,Jugador pJugador) {
+		
+	}
+	//public boolean comprobarVictoria() {
+		
+	//}
 
 }

@@ -1,10 +1,7 @@
-package Trabajo;
+package TrabajoOca;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import Clases.ErrorValorException;
-
 
 public class Teclado {
 	private static Teclado miTeclado = null;
@@ -33,11 +30,11 @@ public class Teclado {
 				sc = new Scanner(System.in);
 				jug = sc.nextInt();
 				if (jug < 2 || jug > 4) {
-					throw new ErrorValorException();
+					throw new ErrorValueException();
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("Introduce un valor del 2 al 4");
-			} catch (ErrorValorException e) {
+			} catch (ErrorValueException e) {
 				System.out.println("Introduce un valor del 2 al 4");
 			}
 			

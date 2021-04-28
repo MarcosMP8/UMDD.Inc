@@ -1,9 +1,16 @@
-package Trabajo;
+package TrabajoOca;
 
-public class CasillaDesplazamiento {
-	//Atributos
+public class CasillaDesplazamiento extends Casilla {
+
+	
 	//Constructora
-	//Otros Metodos
-
-
+	public CasillaDesplazamiento(int pNumCasillas) {
+		super(pNumCasillas);
+	
+	}
+	//Otros Metodos	
+	public void realizarAccion(Jugador pJugador) {
+		
+	}
+	
 }

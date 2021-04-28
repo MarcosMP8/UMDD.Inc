@@ -1,14 +1,16 @@
-package Trabajo;
+package TrabajoOca;
 
 public class Jugador {
 	//Atributos
 	private int turnoParado;
 	private String color;
+	private int id;
 	
 	//Constructora
-	public  Jugador(int pTurnoParado,String pColor ) {
+	public  Jugador(int pTurnoParado,String pColor,int pId ) {
 		this.color=pColor;
 		this.turnoParado=pTurnoParado;
+		this.id=pId;
 	}
 	//Otros Metodos
 	public int getTurnoParado() {
@@ -26,6 +28,14 @@ public class Jugador {
 		return color;
 	}
 	
-
-
+	public void mover(int pNum) {
+		
+	}
+	public boolean igualColor(String pColor) {
+		boolean mismoColor=false;
+		if (this.color==pColor) {
+			mismoColor=true;
+		}
+		return mismoColor;
+	}
 }
