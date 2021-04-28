@@ -1,8 +1,8 @@
-package Trabajo;
+package Parchis;
 
 public class ErrorValorException extends Exception{
 	
-	public ErrorValorException() {
+	ErrorValorException() {
 		super();
 	}
 }
