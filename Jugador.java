@@ -12,12 +12,14 @@ public class Jugador {
 		this.turnoParado=pTurnoParado;
 		this.id=pId;
 	}
+	
 	//Otros Metodos
 	public int getTurnoParado() {
 		int turno=0;
 		turno=this.turnoParado;
 		return turno;
 	}
+	
 	public void setTurnosParados(int pTurnos) {
 		this.turnoParado=pTurnos;
 	}
@@ -26,16 +28,5 @@ public class Jugador {
 		String color;
 		color=this.color;
 		return color;
-	}
-	
-	public void mover(int pNum) {
-		
-	}
-	public boolean igualColor(String pColor) {
-		boolean mismoColor=false;
-		if (this.color==pColor) {
-			mismoColor=true;
-		}
-		return mismoColor;
 	}
 }

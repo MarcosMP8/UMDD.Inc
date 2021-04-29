@@ -7,22 +7,24 @@ public class ListaCasillas {
 	//Atributos
 	private ArrayList <Casilla> lista;
 	private static ListaCasillas miListaCasillas;
+	
 	//Constructora
 	private ListaCasillas() {
-		this.lista = new ArrayList <Casilla>();
-		
-	}	
+		this.lista = new ArrayList <Casilla>();		
+	}
+	
 	//Otros Metodos
 	public static ListaCasillas getListaCasillas() {
 		if (ListaCasillas.miListaCasillas == null) {
 			ListaCasillas.miListaCasillas= new ListaCasillas();
-		}
-		
+		}		
 		return ListaCasillas.miListaCasillas;
 	}
+	
 	private Iterator <Casilla> getIterador(){
 		return this.lista.iterator();
 	}
+	
 	public Casilla getCasilla(int pNum) {
 		if (pNum == 0) {
 			return null;
@@ -31,14 +33,14 @@ public class ListaCasillas {
 			return this.lista.get(pNum);
 		}
 	}
+	
 	public Casilla buscarCasilla(Jugador pJugador) {
 		Casilla unaCasilla = null;
 		boolean esta = false;
 		Iterator <Casilla> itr = this.getIterador();
-		String color=pJugador.getColor();
 		while (itr.hasNext() && !esta) {
 			unaCasilla = itr.next();
-			if (unaCasilla.esta(color)) {
+			if (unaCasilla.esta(pJugador)) {
 				esta = true;
 			}
 		}
@@ -47,9 +49,52 @@ public class ListaCasillas {
 		}
 		return unaCasilla;
 	}
+
+//	public void tablero() {
+	//	for (int pos=0; pos<63; ++pos) {
+		//	if (pos==18 || pos==55 || pos==30 ) {
+			//	Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1);
+				//this.lista.add(casillaEsperaTurnos);
+			//}
+			//else if (pos==4 || pos==5 || pos==8 || pos==11 || pos==13 || pos==17 || pos==22 || pos==25 || pos==26 || pos==31 || pos==35 || pos==40 || pos==44 || pos==49 || pos==52 || pos==53 || pos==57 || pos==58){
+				//Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1);
+				//this.lista.add(casillaDesplazamiento);
+			//}
+			//else {
+				//Casilla casillaNormal= new Normal(pos+1);
+				//this.lista.add(casillaNormal);
+		//	}
+		//}
+	//}
+	
+	public void tablero() {
+		for (int pos=0; pos<63; ++pos) {
+			if (pos==18) {
+				Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1,2);
+				this.lista.add(casillaEsperaTurnos);
+			}
+			else if (pos==55) {
+				Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1,3);
+				this.lista.add(casillaEsperaTurnos);
+			}
+			else if (pos==30 ) {
+				Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1,4);
+				this.lista.add(casillaEsperaTurnos);
+			}
+			//else if (pos==4 || pos==5 || pos==8 || pos==11 || pos==13 || pos==17 || pos==22 || pos==25 || pos==26 || pos==31 || pos==35 || pos==40 || pos==44 || pos==49 || pos==52 || pos==53 || pos==57 || pos==58){
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else {
+				Casilla casillaNormal= new Normal(pos+1);
+				this.lista.add(casillaNormal);
+			}
+		}
+	}
 	public void vaciarTablero() {
 		
 	}
+	
 	public void mover(int pNum,Jugador pJugador) {
 		Casilla casillaInic = this.buscarCasilla(pJugador);
 		Casilla casillaF=null;
@@ -58,10 +103,6 @@ public class ListaCasillas {
 		i=i+pNum;
 		casillaF = this.lista.get(i);
 		casillaF.ponerJugador(pJugador, casillaInic);
-		i++;
-		
-		
-	}
-	
-
+		i++;		
+	}	
 }

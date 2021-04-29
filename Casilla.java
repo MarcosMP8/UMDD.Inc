@@ -23,15 +23,14 @@ public abstract class Casilla {
 		this.lista.añadir(pJugador);
 	}
 	
-	public boolean esta(String pColor) {
+	public boolean esta(Jugador pJugador) {
 		boolean esta;
-		esta=this.lista.mirarPorColor(pColor);
+		esta=this.lista.mirarSiMismoJugador(pJugador);
 		return esta;
 	}
 	
-	
 	// hace falta cabecera aunque no se implemente.
-	public  abstract void realizarAccion(Jugador pJugador) {
+	public  abstract void realizarAccion(Jugador pJugador);
 		
-	}
+	
 }

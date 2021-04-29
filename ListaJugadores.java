@@ -29,16 +29,13 @@ public class ListaJugadores {
 	}
 	public void elegirNumJugadores(int pNum) {
 		if (pNum < minimoJugador || pNum > maximoJugador) {
-			System.out.println("El numero de jugadores tiene que ser entre 2 y 4 ");
-			
-				
+			System.out.println("El numero de jugadores tiene que ser entre 2 y 4 ");			
 			}
 		else if(pNum==2) {
 			Jugador j1 = new Jugador(0,"Rojo", 1);
 			this.lista.add(j1);
 			Jugador j2 = new Jugador(0,"Verde", 2);
-			this.lista.add(j2);
-			
+			this.lista.add(j2);			
 		}
 		else if (pNum==3) {
 			Jugador j1 = new Jugador(0,"Rojo", 1);
@@ -59,9 +56,11 @@ public class ListaJugadores {
 			this.lista.add(j4);
 		}
 	}
+	
 	public Jugador elegirJugador(int pNum) {
 		return this.lista.get(pNum);
 	}
+	
 	public boolean volverAlPrimero(int pNum) {
 		if (pNum == this.lista.size()-1) {
 			return true;
@@ -76,11 +75,11 @@ public class ListaJugadores {
 		}
 		return false;
 	}
+	
 	public void volverATirar() {
 		this.posicion--;
 		System.out.println("Vuelve a tirar");
 	}
-	
 	
 	public void jugarPartida() {
 		boolean victoria=false;
@@ -90,6 +89,7 @@ public class ListaJugadores {
 		pNum=Teclado.getTeclado().elegirNumeroJugadores(); //Pide al teclado un numero
 		this.elegirNumJugadores(pNum); //Añade los jugadores a la lista con sus respectivos colores
 		while (!victoria) {
+			this.posicion=this.posicion+1;
 			
 		}	
 	}

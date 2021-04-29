@@ -1,17 +1,17 @@
 package TrabajoOca;
 
-public class CasillaEsperaTurnos extends Casilla {
-	//Atributos
-	private int posada=2;
-	private int prision=3;
-	private int pozo=4;
-	//Constructora
-	public CasillaEsperaTurnos(int pNumCasillas) {
-		super(pNumCasillas);
+public class CasillaEsperaTurnos extends Casilla{
 	
-	}
-	//Otros Metodos	
+	//Atributos
+	private int esperaTurnos;
+	
+
+	public CasillaEsperaTurnos(int pNumCasillas, int pEsperaTurnos) {
+		super(pNumCasillas);
+		this.esperaTurnos=pEsperaTurnos;
+		
+	}	
 	public void realizarAccion(Jugador pJugador) {
-			
-	}
+		pJugador.setTurnosParados(this.esperaTurnos);	
+	}		
 }
