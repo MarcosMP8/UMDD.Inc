@@ -1,4 +1,4 @@
-package trabajoOca;
+package TrabajoOca;
 
 
 	public class CasillaDesplazamiento extends Casilla {
