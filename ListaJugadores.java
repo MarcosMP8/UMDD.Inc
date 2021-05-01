@@ -68,13 +68,22 @@ public class ListaJugadores {
 		return false;
 	}
 	
+	//public boolean comprobarVictoria(Jugador pJugador) {
+		//Casilla cas = ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
+		//if (cas.getNumCasilla()==63) {
+			//return true;
+		//}
+		//return false;
+	//}
+	
 	public boolean comprobarVictoria(Jugador pJugador) {
 		Casilla cas = ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
-		if (cas.getNumCasilla()==63) {
+		int longitud = ListaCasillas.getListaCasillas().longitudTablero();
+		if (cas.getNumCasilla()==longitud) {
 			return true;
 		}
-		return false;
-	}
+			return false;
+		}
 	
 	public void volverATirar() {
 		this.posicion--;
