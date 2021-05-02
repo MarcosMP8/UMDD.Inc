@@ -21,7 +21,11 @@ public class Jugador {
 	}
 	
 	public void setTurnosParados(int pTurnos) {
-		this.turnoParado=pTurnos;
+		if (pTurnos!=-1) {
+			this.turnoParado=pTurnos;
+		} else {
+			this.turnoParado--;
+		}
 	}
 	
 	public String getColor() {
@@ -29,4 +33,5 @@ public class Jugador {
 		color=this.color;
 		return color;
 	}
+	
 }
