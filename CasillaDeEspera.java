@@ -1,4 +1,4 @@
-package proyecto;
+package TrabajoOca;
 
 public class CasillaDeEspera extends Casilla{
 	
