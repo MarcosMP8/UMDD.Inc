@@ -9,7 +9,7 @@ public class ListaJugadores {
 	private static ListaJugadores miListaJugadores;
 	private int minimoJugador = 2;
 	private int maximoJugador = 4;
-	private int posicion=0;
+	private int posicion=-1;
 	
 	//Constructora
 	private ListaJugadores() {
@@ -96,11 +96,12 @@ public class ListaJugadores {
 		int pNumDado;
 		Casilla actualCasilla;
 		System.out.println("Te damos la Bienvenida a la Oca Supreme de UMDD.Inc ");
-		System.out.println("Podeis jugar entre dos y cuatro");
+		System.out.println("Podeis jugar entre dos y cuatro.");
 		System.out.println("¿Cuantos jugadores sois?");
 		pNum=Teclado.getTeclado().elegirNumeroJugadores(); //Pide al teclado un numero
 		this.elegirNumJugadores(pNum); //Añade los jugadores a la lista con sus respectivos colores
 		while (!victoria) {  //Entra si no ha ganado nadie 
+			this.posicion++;
 			Jugador pJugador=this.elegirJugador(this.posicion);
 			if (pJugador.getTurnoParado()==0) {   //Mira si puede tirar
 				System.out.println("Tienes suerte, puedes moverte"+pJugador.getColor()+"."); //Mensaje en la pantalla 
@@ -111,25 +112,25 @@ public class ListaJugadores {
 				actualCasilla.realizarAccion(pJugador); //Realiza la accion
 				if (this.comprobarVictoria(pJugador)) {
 					victoria=true;
-					System.out.println("Enhorabuena, has ganado"+pJugador.getColor());
+					System.out.println("Enhorabuena, has ganado"+pJugador.getColor()+".");
 				}
 			}
 			else {
 				System.out.println("Lo siento, tendras que esperar"+pJugador.getColor()+".");
 				pJugador.setTurnosParados(-1);
 			} 
-			//Los siguientes ifs mirar porque si no vas a mobver para que comprobarVictoria, en caso de volverAlPrimero se puede mirar moviendio o no
+			//Los siguientes ifs mirar porque si no vas a mover para que comprobarVictoria, en caso de volverAlPrimero se puede mirar moviendio o no
 			if (this.comprobarVictoria(pJugador)) {
 				victoria=true;
-				System.out.println("Enhorabuena, has ganado"+pJugador.getColor());
+				System.out.println("Enhorabuena, has ganado"+pJugador.getColor()+".");
 			
 			}
 			if (this.volverAlPrimero(this.posicion)){
-					this.posicion=0;  //Cero porque inicializada a cero.
-			} else {
-			//Mirar como hacer para que tire de nuevo
-			this.posicion=this.posicion+1;
+					this.posicion=-1;  
 			}
+			//Preguntar mañana comprobarVictoria
+			
+			
 		}
 		
 	}

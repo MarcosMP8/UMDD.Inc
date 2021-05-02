@@ -10,7 +10,58 @@ public class ListaCasillas {
 	
 	//Constructora
 	private ListaCasillas() {
-		this.lista = new ArrayList <Casilla>();		
+		this.lista = new ArrayList <Casilla>();	
+		
+		for (int pos=0; pos<63; ++pos) {
+			if (pos==18) {
+				Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1,2);
+				this.lista.add(casillaEsperaTurnos);
+			}
+			else if (pos==55) {
+				Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1,3);
+				this.lista.add(casillaEsperaTurnos);
+			}
+			else if (pos==30 ) {
+				Casilla casillaEsperaTurnos= new CasillaEsperaTurnos(pos+1,4);
+				this.lista.add(casillaEsperaTurnos);
+			}
+			else if (pos==8 ||pos==17 ||pos==26 || pos==35 || pos==44 || pos==53 ){
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,5);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else if (pos==4 ||pos==13 ||pos==22 || pos==31 || pos==40 || pos==49 || pos==58 ){
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,4);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else if (pos==5) {
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,6);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else if (pos==11){
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,-6);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else if(pos==25) {
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,25);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else if(pos==52) {
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,-25);
+				this.lista.add(casillaDesplazamiento);
+			}
+			else if(pos==41) {
+				Casilla casillaDesplazamientoNoTirar= new CasillaDesplazamiento(pos+1,-12);
+				this.lista.add(casillaDesplazamientoNoTirar);
+			}
+			else if (pos==57) {
+				Casilla casillaDesplazamientoNoTirar= new CasillaDesplazamiento(pos+1,-57);
+				this.lista.add(casillaDesplazamientoNoTirar);
+			}
+			else {
+				Casilla casillaNormal= new Normal(pos+1);
+				this.lista.add(casillaNormal);
+			}
+		}
 	}
 	
 	//Otros Metodos
@@ -137,11 +188,22 @@ public class ListaCasillas {
 	public void mover(int pNum,Jugador pJugador) {
 		Casilla casillaInic = this.buscarCasilla(pJugador);
 		Casilla casillaF=null;
-		int i = casillaInic.getNumCasilla();		
-		i = i-1;    //Restamos uno para el Id del array
-		i=i+pNum;
-		casillaF = this.lista.get(i);
-		casillaF.ponerJugador(pJugador, casillaInic);
+		int i = casillaInic.getNumCasilla();
+		i = i-1; //Restamos uno para el Id del array
+		int fin=this.lista.size();
+		int idx=0;
+		if (i<fin-6) {
+			i=i+pNum;
+			casillaF = this.lista.get(i);
+			casillaF.ponerJugador(pJugador, casillaInic);
+		}
+		else {
+			i=i+pNum;
+			i=i-fin;
+			idx=fin-i;
+			casillaF = this.lista.get(idx);
+			casillaF.ponerJugador(pJugador, casillaInic);
+		}
 		i++;		
 	}	
 }
