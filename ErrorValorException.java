@@ -1,4 +1,4 @@
-package Parchis;
+package TrabajoOca;
 
 public class ErrorValorException extends Exception{
 	
