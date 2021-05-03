@@ -29,7 +29,7 @@ public class ListaCasillas {
 				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,5);
 				this.lista.add(casillaDesplazamiento);
 			}
-			else if (pos==4 ||pos==13 ||pos==22 || pos==31 || pos==40 || pos==49 || pos==58 ){
+			else if (pos==4 ||pos==13 ||pos==22 || pos==31 || pos==40 || pos==49 /*pos==58*/ ){
 				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,4);
 				this.lista.add(casillaDesplazamiento);
 			}
@@ -42,19 +42,19 @@ public class ListaCasillas {
 				this.lista.add(casillaDesplazamiento);
 			}
 			else if(pos==25) {
-				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,25);
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,27);
 				this.lista.add(casillaDesplazamiento);
 			}
 			else if(pos==52) {
-				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,-25);
+				Casilla casillaDesplazamiento= new CasillaDesplazamiento(pos+1,-27);
 				this.lista.add(casillaDesplazamiento);
 			}
 			else if(pos==41) {
-				Casilla casillaDesplazamientoNoTirar= new CasillaDesplazamiento(pos+1,-12);
+				Casilla casillaDesplazamientoNoTirar= new CasillaDesplazamientoNoTirar(pos+1,-12);
 				this.lista.add(casillaDesplazamientoNoTirar);
 			}
 			else if (pos==57) {
-				Casilla casillaDesplazamientoNoTirar= new CasillaDesplazamiento(pos+1,-57);
+				Casilla casillaDesplazamientoNoTirar= new CasillaDesplazamientoNoTirar(pos+1,-57);
 				this.lista.add(casillaDesplazamientoNoTirar);
 			}
 			else {
@@ -120,16 +120,17 @@ public class ListaCasillas {
 	public void mover(int pNum,Jugador pJugador) {
 		Casilla casillaInic = this.buscarCasilla(pJugador);
 		Casilla casillaF=null;
-		int i = casillaInic.getNumCasilla();
-		i = i-1; //Restamos uno para el Id del array
+		int i = casillaInic.getNumCasilla();		
 		int fin=this.lista.size();
 		int idx=0;
 		if (i<fin-6) {
+			i = i-1; //Restamos uno para el Id del array
 			i=i+pNum;
 			casillaF = this.lista.get(i);
 			casillaF.ponerJugador(pJugador, casillaInic);
 		}
 		else {
+			i = i-1; //Restamos uno para el Id del arrayº
 			i=i+pNum;
 			i=i-fin;
 			idx=fin-i;

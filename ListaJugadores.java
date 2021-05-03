@@ -60,6 +60,9 @@ public class ListaJugadores {
 	public Jugador elegirJugador(int pNum) {
 		return this.lista.get(pNum);
 	}
+	public void setPosicion(int pPosicion) {
+		this.posicion=pPosicion;
+	}
 	
 	public boolean volverAlPrimero(int pNum) {
 		if (pNum == this.lista.size()-1) {
@@ -87,7 +90,7 @@ public class ListaJugadores {
 	
 	public void volverATirar() {
 		this.posicion--;
-		System.out.println("Vuelve a tirar");
+		System.out.println("Vuelves a tirar,suerte");
 	}
 	
 	public void jugarPartida() {
