@@ -114,7 +114,7 @@ public class ListaJugadores {
 		System.out.println("Podeis jugar entre dos y cuatro.");
 		System.out.println("¿Cuantos jugadores sois?");
 		pNum=Teclado.getTeclado().elegirNumeroJugadores(); //Pide al teclado un numero
-		this.elegirNumJugadores(pNum); //Añade los jugadores a la lista con sus respectivos colores
+		this.elegirNumJugadores(pNum); //Añade los jugadores a la lista con sus respectivos colores y pone cada jugador en la primera Casilla
 		while (!victoria) {  //Entra si no ha ganado nadie 
 			this.posicion++;
 			Jugador pJugador=this.elegirJugador(this.posicion);
@@ -125,13 +125,14 @@ public class ListaJugadores {
 				ListaCasillas.getListaCasillas().mover(pNumDado, pJugador); //Hace el metodo mover
 				actualCasilla=ListaCasillas.getListaCasillas().buscarCasilla(pJugador); //Pide que busque a ListaCasillas donde se ha colocado el jugador. Lo hago esto para saber que casilla esta y despues hacer el metodo realizar accion. No me complico metiendo el realizar accion dentro de mover. Mañana comentarlo.
 				actualCasilla.realizarAccion(pJugador); //Realiza la accion
+				System.out.println("El jugador_" +pJugador.getColor()+"esta en la casilla_"+ actualCasilla.getNumCasilla()+ "con Turnos parados_ "+pJugador.getTurnoParado());
 				if (this.comprobarVictoria(pJugador)) {
 					victoria=true;
-					System.out.println("Enhorabuena, has ganado"+pJugador.getColor()+".");
+					System.out.println("Enhorabuena, has ganado_"+pJugador.getColor()+"...");
 				}
 			}
 			else {
-				System.out.println("Lo siento, tendras que esperar"+pJugador.getColor()+".");
+				System.out.println("Lo siento, tendras que esperar_"+pJugador.getColor()+"...al menos es un turno menos :)");
 				pJugador.setTurnosParados(-1);
 			} 		
 			if (this.volverAlPrimero(this.posicion)){
