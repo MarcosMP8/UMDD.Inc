@@ -57,9 +57,12 @@ class ListaJugadoresTest {
 		Casilla unaCasilla2=null;
 		Casilla unaCasilla3=null;
 		
-		estaCasilla.ponerJugador(j1, unaCasilla1);
-		estaCasilla.ponerJugador(j2, unaCasilla2);
-		estaCasilla.ponerJugador(j3, unaCasilla3);
+		System.out.println("");
+		System.out.println("");
+		
+		System.out.println("El jugador1 tiene de color" + j1.getColor());
+		System.out.println("El jugador2 tiene de color" + j2.getColor());
+		System.out.println("El jugador3 tiene de color" + j3.getColor());
 		
 		unaCasilla1=lista1.buscarCasilla(j1);
 		unaCasilla2=lista1.buscarCasilla(j2);
@@ -292,6 +295,31 @@ class ListaJugadoresTest {
 		unaCasilla1=lista1.buscarCasilla(j1);
 		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
 		lista1.mover(-1, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Test Rebote en el final");
+		System.out.println("");
+		System.out.println("");
+		estaCasilla.ponerJugador(j1, unaCasilla1);
+		estaCasilla.ponerJugador(j2, unaCasilla2);
+		estaCasilla.ponerJugador(j3, unaCasilla3);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		unaCasilla2=lista1.buscarCasilla(j2);
+		unaCasilla3=lista1.buscarCasilla(j3);
+		System.out.println("El jugador esta en la casilla" + unaCasilla1.getNumCasilla());
+		System.out.println("El jugador esta en la casilla" + unaCasilla2.getNumCasilla());
+		System.out.println("El jugador esta en la casilla" + unaCasilla3.getNumCasilla());
+		
+		assertEquals(1,unaCasilla1.getNumCasilla());
+		assertEquals(1,unaCasilla2.getNumCasilla());
+		assertEquals(1,unaCasilla3.getNumCasilla());
+		lista1.mover(59, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		lista1.mover(5, j1);
 		unaCasilla1=lista1.buscarCasilla(j1);
 		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
 		

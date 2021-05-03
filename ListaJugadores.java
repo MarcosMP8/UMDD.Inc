@@ -141,9 +141,3 @@ public class ListaJugadores {
 		}		
 	}
 }
-
-
-// Hay dos comprobarWin porque por temas de eficiencia igual es mejor solo comprobarWin cuando el jugador se ha movido y no cuando da igual lo que haga compruebawin. Despues he inicializado posicion en 0 y en vez de actualizarlo el atributo posicion al principio de la tirada, lo hago al final. Eso discutirlo mañana aunque me gusta mas de la otra forma pero depende de como penseis.
-// He modificado el metodo setTurnosParados para que se pueda disminuir incluso con ese metodo solo
-// Mirar para tirar de nuevo 
-// Estos dias duros, colaborando tanto cuando nos reunimos y tanto cuando no, incluido yo.
