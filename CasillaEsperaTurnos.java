@@ -12,6 +12,13 @@ public class CasillaEsperaTurnos extends Casilla{
 		
 	}	
 	public void realizarAccion(Jugador pJugador) {
-		pJugador.setTurnosParados(this.esperaTurnos);	
+		pJugador.setTurnosParados(this.esperaTurnos);
+		if (this.esperaTurnos==2) {
+			System.out.println("Has caido en la Posada :(");
+		}else if (this.esperaTurnos==3) {
+			System.out.println("Has caido la Prision :(");
+		}else {
+			System.out.println("Has caido en el Pozo :(");
+		}
 	}		
 }

@@ -9,5 +9,10 @@ public class CasillaDesplazamientoNoTirar extends Casilla {
 	}
 	public void realizarAccion(Jugador pJugador) {
 		ListaCasillas.getListaCasillas().mover(this.desplazamiento, pJugador);
+		if (this.desplazamiento==-12) {
+			System.out.println("Lo siento, tendras que ir para atras");
+		}else {
+			System.out.println("Lo siento, tendras que empezar desde el principio");
+		}
 	}
 }

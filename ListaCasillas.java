@@ -123,20 +123,42 @@ public class ListaCasillas {
 		int i = casillaInic.getNumCasilla();		
 		int fin=this.lista.size();
 		int idx=0;
-		if (i<fin-6) {
+		if (i+pNum<=fin) {
 			i = i-1; //Restamos uno para el Id del array
 			i=i+pNum;
 			casillaF = this.lista.get(i);
 			casillaF.ponerJugador(pJugador, casillaInic);
 		}
 		else {
-			i = i-1; //Restamos uno para el Id del arrayº
 			i=i+pNum;
 			i=i-fin;
 			idx=fin-i;
+			idx=idx-1;
 			casillaF = this.lista.get(idx);
 			casillaF.ponerJugador(pJugador, casillaInic);
 		}
 		i++;		
 	}	
+	
+	/*public void mover(int pNum, Jugador pJugador){
+		Casilla casillaInic = this.buscarCasilla(pJugador);
+		Casilla casillaF=null;
+		int i = casillaInic.getNumCasilla();
+		int idx = casillaInic.getNumCasilla();
+		int indice;
+		int fin=this.lista.size();
+		i--;
+		i=i+pNum;
+		if (i>fin) {
+			idx=i-fin;
+			casillaF=this.lista.get(fin-idx);
+			casillaF.ponerJugador(pJugador, casillaInic);
+		}else {
+			i=i+pNum;
+			casillaF = this.lista.get(i);
+			casillaF.ponerJugador(pJugador, casillaInic);
+		}
+		
+		
+	}*/
 }

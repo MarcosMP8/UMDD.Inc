@@ -313,15 +313,32 @@ class ListaJugadoresTest {
 		System.out.println("El jugador esta en la casilla" + unaCasilla2.getNumCasilla());
 		System.out.println("El jugador esta en la casilla" + unaCasilla3.getNumCasilla());
 		
-		assertEquals(1,unaCasilla1.getNumCasilla());
-		assertEquals(1,unaCasilla2.getNumCasilla());
-		assertEquals(1,unaCasilla3.getNumCasilla());
 		lista1.mover(59, j1);
 		unaCasilla1=lista1.buscarCasilla(j1);
 		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
 		lista1.mover(5, j1);
 		unaCasilla1=lista1.buscarCasilla(j1);
 		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		estaCasilla.ponerJugador(j1, unaCasilla1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador esta en la casilla" + unaCasilla1.getNumCasilla());
+		lista1.mover(59, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		lista1.mover(1, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		lista1.mover(1, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		lista1.mover(1, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		assertTrue(ListaJugadores.getListaJugadores().comprobarVictoria(j1));
+		lista1.mover(1, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		
 		
 	}
 	

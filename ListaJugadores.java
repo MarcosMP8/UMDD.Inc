@@ -102,7 +102,7 @@ public class ListaJugadores {
 	
 	public void volverATirar() {
 		this.posicion--;
-		System.out.println("Vuelves a tirar, suerte");
+		
 	}
 	
 	public void jugarPartida() {
@@ -114,30 +114,44 @@ public class ListaJugadores {
 		System.out.println("Podeis jugar entre dos y cuatro.");
 		System.out.println("¿Cuantos jugadores sois?");
 		pNum=Teclado.getTeclado().elegirNumeroJugadores(); //Pide al teclado un numero
+		System.out.println("Suerte a los " +pNum);
 		this.elegirNumJugadores(pNum); //Añade los jugadores a la lista con sus respectivos colores y pone cada jugador en la primera Casilla
-		while (!victoria) {  //Entra si no ha ganado nadie 
+		System.out.println("Empieza la partida");		
+		while (!victoria) {  //Entra si no ha ganado nadie
+			Teclado.getTeclado().pulsaTeclaParaContinuar();
 			this.posicion++;
 			Jugador pJugador=this.elegirJugador(this.posicion);
+			System.out.println("Es tu turno Jugador " +pJugador.getColor());
 			if (pJugador.getTurnoParado()==0) {   //Mira si puede tirar
-				System.out.println("Tienes suerte, puedes moverte"+pJugador.getColor()+"."); //Mensaje en la pantalla 
+				actualCasilla=ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
+				System.out.println("Estas en la casilla " +actualCasilla.getNumCasilla());
+				System.out.println("No tienes que esperar, puedes moverte "+pJugador.getColor()+"."); //Mensaje en la pantalla 
 				Teclado.getTeclado().pulsaTeclaParaContinuar();  //Pide al usuario que de al intro para tirar dado. He pensado estopara que sea mas interactivo con el usuario.
 				pNumDado=Dado.getDado().lanzarDado();  //Llama al dado para que lance
+				System.out.println("Ha salido en el dado un "+ pNumDado+" y avanzas");
 				ListaCasillas.getListaCasillas().mover(pNumDado, pJugador); //Hace el metodo mover
-				actualCasilla=ListaCasillas.getListaCasillas().buscarCasilla(pJugador); //Pide que busque a ListaCasillas donde se ha colocado el jugador. Lo hago esto para saber que casilla esta y despues hacer el metodo realizar accion. No me complico metiendo el realizar accion dentro de mover. Mañana comentarlo.
+				actualCasilla=ListaCasillas.getListaCasillas().buscarCasilla(pJugador); //Pide que busque a ListaCasillas donde se ha colocado el jugador. Lo hago esto para saber que casilla esta y despues hacer el metodo realizar accion. No me complico metiendo el realizar accion dentro de mover. 
+				System.out.println("Has avanzado hasta la casilla "+actualCasilla.getNumCasilla());
 				actualCasilla.realizarAccion(pJugador); //Realiza la accion
-				System.out.println("El jugador_" +pJugador.getColor()+"esta en la casilla_"+ actualCasilla.getNumCasilla()+ "con Turnos parados_ "+pJugador.getTurnoParado());
+				actualCasilla=ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
+				System.out.println("El jugador " +pJugador.getColor()+" esta en la casilla "+ actualCasilla.getNumCasilla()+ " con Turnos parados  "+pJugador.getTurnoParado());
 				if (this.comprobarVictoria(pJugador)) {
 					victoria=true;
-					System.out.println("Enhorabuena, has ganado_"+pJugador.getColor()+"...");
+					System.out.println("Enhorabuena, has ganado_"+pJugador.getColor()+"...os esperamos para la siguiente :)");
 				}
 			}
 			else {
-				System.out.println("Lo siento, tendras que esperar_"+pJugador.getColor()+"...al menos es un turno menos :)");
+				System.out.println("Lo siento, tendras que esperar "+pJugador.getColor()+"  al menos es un turno menos :)");
 				pJugador.setTurnosParados(-1);
 			} 		
 			if (this.volverAlPrimero(this.posicion)){
 					this.posicion=-1;  
 			}
 		}		
+	}
+	
+	public static void main(String[] args) {
+		ListaJugadores lj= ListaJugadores.getListaJugadores();
+		lj.jugarPartida();
 	}
 }
