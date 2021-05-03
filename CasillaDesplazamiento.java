@@ -17,7 +17,7 @@ public class CasillaDesplazamiento extends Casilla {
 		}else if(this.desplazamiento==6 || this.desplazamiento==-6){
 			System.out.println("De Puente en Puente y tiro porque me lleva la corriente");
 		}else {
-			System.out.println("De Dado en Ddao y tiro porque me ha tocado");
+			System.out.println("De Dado en Dado y tiro porque me ha tocado");
 		}
 		ListaJugadores.getListaJugadores().volverATirar();
 	}

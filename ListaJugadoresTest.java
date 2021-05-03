@@ -283,6 +283,18 @@ class ListaJugadoresTest {
 		unaCasilla3.realizarAccion(j3);
 		unaCasilla3=lista1.buscarCasilla(j3);
 		System.out.println("El jugador ahora esta en la casilla" + unaCasilla3.getNumCasilla());
+		
+		System.out.println("");
+		System.out.println("");
+		estaCasilla.ponerJugador(j1, unaCasilla1);
+		System.out.println("El jugador ha caido en la casilla" + estaCasilla.getNumCasilla());
+		lista1.mover(2, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		lista1.mover(-1, j1);
+		unaCasilla1=lista1.buscarCasilla(j1);
+		System.out.println("El jugador ha caido en la casilla" + unaCasilla1.getNumCasilla());
+		
 	}
 	
 	

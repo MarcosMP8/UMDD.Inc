@@ -28,32 +28,52 @@ public class ListaJugadores {
 		return this.lista.iterator();
 	}
 	public void elegirNumJugadores(int pNum) {
+		Casilla casilla1=null;
 		if (pNum < minimoJugador || pNum > maximoJugador) {
 			System.out.println("El numero de jugadores tiene que ser entre 2 y 4 ");			
 			}
 		else if(pNum==2) {
 			Jugador j1 = new Jugador(0,"Rojo", 1);
 			this.lista.add(j1);
+			Casilla unaCasilla1=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla1.ponerJugador(j1, casilla1);
 			Jugador j2 = new Jugador(0,"Verde", 2);
-			this.lista.add(j2);			
+			this.lista.add(j2);	
+			Casilla unaCasilla2=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla2.ponerJugador(j2, casilla1);
+			
 		}
 		else if (pNum==3) {
 			Jugador j1 = new Jugador(0,"Rojo", 1);
 			this.lista.add(j1);
+			Casilla unaCasilla1=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla1.ponerJugador(j1, casilla1);
 			Jugador j2 = new Jugador(0,"Verde", 2);
 			this.lista.add(j2);
+			Casilla unaCasilla2=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla2.ponerJugador(j2, casilla1);
 			Jugador j3 = new Jugador(0,"Azul", 3);
 			this.lista.add(j3);
+			Casilla unaCasilla3=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla3.ponerJugador(j3, casilla1);
 		}
 		else {
 			Jugador j1 = new Jugador(0,"Rojo", 1);
 			this.lista.add(j1);
+			Casilla unaCasilla1=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla1.ponerJugador(j1, casilla1);
 			Jugador j2 = new Jugador(0,"Verde", 2);
 			this.lista.add(j2);
+			Casilla unaCasilla2=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla2.ponerJugador(j2, casilla1);
 			Jugador j3 = new Jugador(0,"Azul", 3);
 			this.lista.add(j3);
+			Casilla unaCasilla3=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla3.ponerJugador(j3, casilla1);
 			Jugador j4 = new Jugador(0,"Amarillo", 4);
 			this.lista.add(j4);
+			Casilla unaCasilla4=ListaCasillas.getListaCasillas().getCasilla(1);
+			unaCasilla4.ponerJugador(j4, casilla1);
 		}
 	}
 	
@@ -71,14 +91,6 @@ public class ListaJugadores {
 		return false;
 	}
 	
-	//public boolean comprobarVictoria(Jugador pJugador) {
-		//Casilla cas = ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
-		//if (cas.getNumCasilla()==63) {
-			//return true;
-		//}
-		//return false;
-	//}
-	
 	public boolean comprobarVictoria(Jugador pJugador) {
 		Casilla cas = ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
 		int longitud = ListaCasillas.getListaCasillas().longitudTablero();
@@ -86,11 +98,11 @@ public class ListaJugadores {
 			return true;
 		}
 			return false;
-		}
+	}
 	
 	public void volverATirar() {
 		this.posicion--;
-		System.out.println("Vuelves a tirar,suerte");
+		System.out.println("Vuelves a tirar, suerte");
 	}
 	
 	public void jugarPartida() {
@@ -121,21 +133,11 @@ public class ListaJugadores {
 			else {
 				System.out.println("Lo siento, tendras que esperar"+pJugador.getColor()+".");
 				pJugador.setTurnosParados(-1);
-			} 
-			//Los siguientes ifs mirar porque si no vas a mover para que comprobarVictoria, en caso de volverAlPrimero se puede mirar moviendio o no
-			if (this.comprobarVictoria(pJugador)) {
-				victoria=true;
-				System.out.println("Enhorabuena, has ganado"+pJugador.getColor()+".");
-			
-			}
+			} 		
 			if (this.volverAlPrimero(this.posicion)){
 					this.posicion=-1;  
 			}
-			//Preguntar mañana comprobarVictoria
-			
-			
-		}
-		
+		}		
 	}
 }
 
