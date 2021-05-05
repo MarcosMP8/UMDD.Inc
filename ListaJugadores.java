@@ -114,6 +114,7 @@ public class ListaJugadores {
 		System.out.println("Podeis jugar entre dos y cuatro.");
 		System.out.println("¿Cuantos jugadores sois?");
 		pNum=Teclado.getTeclado().elegirNumeroJugadores(); //Pide al teclado un numero
+		System.out.println("El primero que llegue a la casilla 63 gana");
 		System.out.println("Suerte a los " +pNum);
 		this.elegirNumJugadores(pNum); //Añade los jugadores a la lista con sus respectivos colores y pone cada jugador en la primera Casilla
 		System.out.println("Empieza la partida");		
