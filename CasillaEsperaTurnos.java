@@ -16,7 +16,7 @@ public class CasillaEsperaTurnos extends Casilla{
 		if (this.esperaTurnos==2) {
 			System.out.println("Has caido en la Posada :(");
 		}else if (this.esperaTurnos==3) {
-			System.out.println("Has caido la Prision :(");
+			System.out.println("Has caido en la Prision :(");
 		}else {
 			System.out.println("Has caido en el Pozo :(");
 		}

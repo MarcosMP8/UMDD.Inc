@@ -143,6 +143,8 @@ public class ListaJugadores {
 			else {
 				System.out.println("Lo siento, tendras que esperar "+pJugador.getColor()+"  al menos es un turno menos :)");
 				pJugador.setTurnosParados(-1);
+				actualCasilla=ListaCasillas.getListaCasillas().buscarCasilla(pJugador);
+				System.out.println("El jugador " +pJugador.getColor()+" esta en la casilla "+ actualCasilla.getNumCasilla()+ " con Turnos parados  "+pJugador.getTurnoParado());
 			} 		
 			if (this.volverAlPrimero(this.posicion)){
 					this.posicion=-1;  
